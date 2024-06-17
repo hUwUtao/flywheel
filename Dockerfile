@@ -21,5 +21,6 @@ RUN mkdir -p /opt/mimalloc
 COPY --from=mimalloc_build /opt/mimalloc/libmimalloc.so /opt/mimalloc/libmimalloc.so
 # extra bit of safety
 RUN chmod -R 555 /opt/mimalloc
+ENV LD_PRELOAD=/opt/mimalloc/libmimalloc.so
 
 CMD [ "/usr/bin/env", "echo", "Hello World!" ]

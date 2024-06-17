@@ -1,10 +1,10 @@
-name: build graalvm
+name: build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   pterodactyl-graalvm:
@@ -39,7 +39,7 @@ jobs:
             ghcr.io/huwutao/flywheel
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=raw
+            type=raw,default
             
       - name: Build and push
         uses: docker/build-push-action@v5
